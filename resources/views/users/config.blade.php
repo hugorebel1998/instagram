@@ -18,8 +18,8 @@
                     </div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('user.update') }}">
-                            @csrf
+                        <form method="POST" action="{{ route('user.update') }}" enctype="multipart/form-data">
+                            {{ csrf_field() }}
 
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
@@ -70,7 +70,7 @@
 
                             <div class="form-group row">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Correo electrónico') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
@@ -80,6 +80,14 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="image_path"
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Imagen') }}</label>
+                                <div class="col-md-6">
+                                    <input id="image_path" type="file" class="form-control-file" name="image_path">
                                 </div>
                             </div>
 
