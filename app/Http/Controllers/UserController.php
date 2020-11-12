@@ -6,11 +6,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-
-
-
-
+use Illuminate\Http\Response;
 use App\User;
+
+
 
 class UserController extends Controller
 {
@@ -55,5 +54,12 @@ class UserController extends Controller
         $user->update();
 
         return redirect()->route('user.config')->with(['message' => 'Usuario atualizado correctamente']);
+    }
+    
+    public function getImage($filename){
+
+        $file = Storage::disk('users')->get($filename);
+
+        return new Response($file, 200);
     }
 }
