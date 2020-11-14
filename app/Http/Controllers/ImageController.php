@@ -21,6 +21,7 @@ class ImageController extends Controller
     {
         return view('image.create');
     }
+
     public function save(Request $request)
     {
         // \Validator::extend('alpha_spaces', function ($attribute, $value) {
@@ -28,7 +29,7 @@ class ImageController extends Controller
         // });
         //Recogiendo los datos
         $image_path = $request->file('image_path');
-        $description = $request->file('description');
+        $description = $request->input('description');
 
         // var_dump($imagen_path);
         // var_dump($description);
@@ -47,13 +48,13 @@ class ImageController extends Controller
             $image->image_path = $image_path_name;
         }
 
-        // $image->save();
+        $image->save();
 
-        // return redirect()->route('home')->with([
-        //     'message' => 'La imagen subida con éxito'
-        // ]);
+        return redirect()->route('home')->with([
+            'message' => 'La imagen subida con éxito'
+        ]);
 
-        var_dump(json_decode($request));
-        die();
+        // var_dump(json_decode($request));
+        // die();
     }
 }

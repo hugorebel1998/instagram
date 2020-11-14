@@ -13,20 +13,28 @@ class Like extends Model
      * @var string
      */
     protected $table = 'likes';
-    
-     /**
+
+    /**
      * Relación One To Many /de uno a muchos
      */
-    public function likes()
+    // public function likes()
+    // {
+    //     return $this->hasMany('App\Like');
+    // }
+    public function user()
     {
-        return $this->hasMany('App\Like');
+        return $this->belongsTo('App\User', 'user_id');
     }
 
     /**
      * Relación Muchos a uno
      */
-    public function user()
+    // public function user()
+    // {
+    //     return $this->belongsTo('App\User', 'user_id');
+    // }
+    public function image()
     {
-        return $this->belongsTo('App\User', 'user_id');
+        return $this->belongsTo('App\Image', 'image_id');
     }
 }

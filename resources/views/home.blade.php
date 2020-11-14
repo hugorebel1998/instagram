@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 @include('includes.message')
                 <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
+                    <div class="card-header"><i class="fas fa-home"></i> {{ __('Inicio') }}</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -15,7 +15,7 @@
                             </div>
                         @endif
 
-                        {{ __('You are logged in!') }}
+                        {{ __('Bienvenido') }} <b>Hugo Guillermo</b> {{__('que haremos hoy')}}
                     </div>
                 </div>
             </div>
