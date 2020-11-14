@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
             'name' => 'Hugo',
             'surname' => 'Guillermo',
             'nick' => 'hugoguillermoweb',
+            'image' => 'hugo.jpg',
             'email' => 'hugorebel1998@gmail.com',
             'password' => bcrypt('12345678'),
         ]);
@@ -26,6 +27,7 @@ class UserSeeder extends Seeder
             'name' => 'Juan Pablo',
             'surname' => 'Guillermo Segundo',
             'nick' => 'juanpabloweb',
+            'image' => 'juan.jpg',
             'email' => 'juanpablo@gmail.com',
             'password' => bcrypt('12345678'),
         ]);
@@ -35,6 +37,7 @@ class UserSeeder extends Seeder
             'name' => 'Jose Luis',
             'surname' => 'Guillermo Segundo',
             'nick' => 'joseluisweb',
+            'image' => 'jose.jpg',
             'email' => 'joseluis@gmail.com',
             'password' => bcrypt('12345678'),
         ]);

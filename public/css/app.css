@@ -10903,3 +10903,16 @@ a.text-dark:focus {
   }
 }
 
+.navbar .container-avatar{
+  width: 45px;
+  height: 45px;
+  border-radius: 900px;
+  overflow: hidden;
+  margin-left: 30px;
+}
+
+.navbar .container-avatar img{
+  width: 45px;
+  
+}
+

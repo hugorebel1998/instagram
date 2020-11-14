@@ -13,6 +13,13 @@ use App\User;
 
 class UserController extends Controller
 {
+
+    public function __construct()
+    {
+
+        $this->middleware('auth');
+    }
+
     public function config()
     {
 
@@ -35,13 +42,13 @@ class UserController extends Controller
         $user->surname = $surname;
         $user->nick = $nick;
         $user->email = $email;
-        
+
         //Subir la imagen
-        $image_path= $request->file('image_path');
-        if($image_path){
+        $image_path = $request->file('image_path');
+        if ($image_path) {
 
             //Poner un nombre unico
-            $image_path_name = time().$image_path->getClientOriginalName();
+            $image_path_name = time() . $image_path->getClientOriginalName();
 
             //Guardarla en la carpeta seleccionada
             Storage::disk('users')->put($image_path_name, File::get($image_path));
@@ -55,8 +62,9 @@ class UserController extends Controller
 
         return redirect()->route('user.config')->with(['message' => 'Usuario atualizado correctamente']);
     }
-    
-    public function getImage($filename){
+
+    public function getImage($filename)
+    {
 
         $file = Storage::disk('users')->get($filename);
 

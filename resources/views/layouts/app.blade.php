@@ -59,11 +59,15 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="#">{{ __('Inicio') }}</a>
+                                <a class="nav-link" href="{{ route('home') }}">{{ __('Inicio') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">{{ __('Subir imagen') }}</a>
+                                <a class="nav-link" href="{{ route('image.create') }}">{{ __('Subir imagen') }}</a>
                             </li>
+                            <li class="nav-item">
+                                @include('includes.avatar')
+                            </li>
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -79,8 +83,9 @@
                                         <i class="fas fa-cogs"></i>
                                         {{ __('Configuración') }}
                                     </a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                         document.getElementById('logout-form').submit();">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                                             document.getElementById('logout-form').submit();">
                                         <i class="fad fa-sign-in"></i>
                                         {{ __('Logout') }}
                                     </a>

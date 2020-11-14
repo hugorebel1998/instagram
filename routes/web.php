@@ -20,8 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/users/config', 'UserController@config')->name('user.config');
-Route::post('/users/update', 'UserController@update')->name('user.update');
-Route::get('/users/avatar/{filename}', 'UserController@getImage')->name('user.avatar');
+Route::get('/users/config', 'UserController@config')->name('user.config')->middleware('auth');
+Route::post('/users/update', 'UserController@update')->name('user.update')->middleware('auth');
+Route::get('/users/avatar/{filename}', 'UserController@getImage')->name('user.avatar')->middleware('auth');
+
+Route::get('/images/create', 'ImageController@create')->name('image.create')->middleware('auth');
+Route::post('/image/save', 'ImageController@save')->name('image.save')->middleware('auth');
 
 

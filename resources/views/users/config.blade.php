@@ -4,13 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-
-                @if (session('message'))
-                    <div class="alert alert-primary" role="alert">
-                        {{ session('message') }}
-                    </div>
-
-                @endif
+                @include('includes.message')
                 <div class="card">
                     <div class="card-header text-info">
                         <i class="fas fa-user-tie text-primary"></i>
@@ -87,16 +81,17 @@
                                 <label for="image_path"
                                     class="col-md-4 col-form-label text-md-right">{{ __('Avatar') }}</label>
                                 <div class="col-md-6">
-                                    <input id="image_path" type="file" class="form-control-file" name="image_path">
+                                    <input id="image_path" type="file"
+                                        class="form-control-file @error('image_path') is-invalid @enderror"
+                                        name="image_path">
                                 </div>
+                                @error('image_path')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
-                            <div class="mb-5 text-center">
-                            @if (Auth::user()->image)
-                                    <img src="{{ route('user.avatar', ['filename' => Auth::user()->image]) }}"
-                                        class="img-fluid" width="200">
-                                </div>
-                            @endif
-
+                            @include('includes.avatar')
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn btn-sm btn-primary">
