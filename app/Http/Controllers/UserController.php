@@ -28,6 +28,11 @@ class UserController extends Controller
 
     public function update(UserRequest $request)
     {
+        //Validacion de espacios
+        \Validator::extend('alpha_spaces', function ($attribute, $value) {
+            return preg_match('/^([-a-z0-9_-\s])+$/i', $value);
+        });
+        
         //Conseguir usuario identificado
         $user =  \Auth::user();
         $id = $user->id;

@@ -26,8 +26,8 @@ class UserRequest extends FormRequest
         $id = \Auth::user()->id;
 
         return [
-            'name' => 'required|alpha|max:255',
-            'surname' => 'required|alpha|max:255',
+            'name' => 'required',
+            'surname' => 'required',
             'nick' => 'required|string|max:255|unique:users,nick,'.$id,
             'email' => 'required|string|email|max:255|unique:users,email,'.$id,
 
