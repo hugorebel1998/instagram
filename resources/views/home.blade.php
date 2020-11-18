@@ -42,11 +42,13 @@
                                 <span>{{ '@' . $image->user->nick }}</span>
                                 <p class="">{{ $image->description }}</p>
                             </div>
-
-                            <a href="#" class="btn btn-sm btn-warning ml-4 mb-3">
-                                Comentarios
-                            </a>
-
+                            <span class="pl-4 fecha">
+                                {{ \FormatTime::LongTimeFilter($image->created_at) }}
+                            </span>
+                            <hr>
+                                <a href="#" class="btn btn-sm btn-warning ml-4 mb-3">
+                                    Comentarios ({{ count($image->comments)  }})
+                                </a>
                         </div>
                     </div>
                 @endforeach

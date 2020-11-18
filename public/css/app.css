@@ -10902,48 +10902,43 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
-
-.container-avatar{
-  width: 45px;
-  height: 45px;
-  border-radius: 900px;
-  overflow: hidden;
-  margin-left: 30px;
-}
-
-.container-avatar img{
-  width: 45px;
+/* .container-avatar{
+    width: 45px;
+    height: 45px;
+    border-radius: 900px;
+    overflow: hidden;
+    margin-left: 30px;
+  }
   
-}
-
-.container-avatar_mu{
-  width: 45px;
-  height: 45px;
-  border-radius: 900px;
-  overflow: hidden;
-  margin-left: 30px;
-
-}
-.container-avatar_mu{
-  float: left;
-  margin-right: 15px;
-}
-.card-header{
-  padding: 0.29rem;
-}
-
-.card-body{
-  padding: 0;
-}
-
-
-.image img{
-  width: 100%;
-}
-
-.fas{
-  font-size: 1.3rem;
-}
-.detalle {
-  color: black;
-}
+  .container-avatar img{
+    width: 45px;
+    
+  }
+  
+  .container-avatar_mu{
+    width: 45px;
+    height: 45px;
+    border-radius: 900px;
+    overflow: hidden;
+    margin-left: 30px;
+  
+  }
+  .container-avatar_mu{
+    float: left;
+    margin-right: 15px;
+  }
+  .card-header{
+    padding: 0.29rem;
+  }
+  
+  .image img{
+    width: 100%;
+  }
+  
+  .fas{
+    font-size: 1.3rem;
+  }
+  .detalle {
+    color: black;
+  }
+ */
