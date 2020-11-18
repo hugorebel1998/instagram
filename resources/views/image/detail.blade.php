@@ -60,15 +60,66 @@
                                     @enderror
                                 </div>
                                 <div class="from-group mt-4 pl-4">
-                                    <button type="submit" class="btn btn-sm btn-primary"><i class="fas fa-save"></i> Guardar
-                                        cambios</button>
+                                    <button type="submit" class="btn btn-sm btn-primary"><i class="far fa-paper-plane"></i> Publicar</button>
                                 </div>
                             </div>
                         </form>
+                        @foreach ($image->comments as $comment)
+                            <div class="row">
+                                <div class="col-md-12 pl-5">
+                                    <hr class="pl-4">
+                                    <span class="nick">{{ '@' . $comment->user->nick }}</span>
+                                    <span class="fecha">
+                                        | {{ \FormatTime::LongTimeFilter($comment->created_at) }}
+                                    </span>
+                                    <p> {{ $comment->content }}</p>
+                                    @if (Auth::check() && ($comment->user_id == Auth::user()->id || $comment->image->user_id == Auth::user()->id))
+
+                                        {{-- <a
+                                            href="{{ route('comment.delete', ['id' => $comment->id]) }}">
+                                            Eliminar
+                                        </a>
+                                        <hr>
+                                        <br> --}}
+                                        <!-- Button trigger modal -->
+                                        <a href="#" data-toggle="modal" data-target="#exampleModal">
+                                            <i class="fas fa-trash-alt text-danger"></i>
+                                          </a
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="exampleModal" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalLabel">Comentario</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <h5>Deseas eliminar este comentario</h5>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <a href="{{ route('comment.delete', ['id' => $comment->id]) }}" class="btn btn-sm btn-danger">Eliminar</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                </div>
+
+                            </div>
+
+                        @endforeach
                     </div>
                 </div>
 
             </div>
         </div>
     </div>
+
+
 @endsection

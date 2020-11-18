@@ -31,3 +31,4 @@ Route::get('/image/detail/{id}', 'ImageController@detail')->name('image.detail')
 
 
 Route::post('/comment/save', 'CommentController@save')->name('comment.save')->middleware('auth');
+Route::get('/comment/save/{id}', 'CommentController@delete')->name('comment.delete')->middleware('auth');
