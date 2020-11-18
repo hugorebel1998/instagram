@@ -32,7 +32,7 @@
                         </div>
 
                         <div class="likes pl-4 pt-3">
-                            <i class="fas fa-heart text-danger"></i>
+                            <i class="fas fa-heart "></i>
                             <i class="fas fa-comment pl-3 pr-3"></i>
                             <i class="fas fa-paper-plane"></i>
                         </div>
