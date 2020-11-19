@@ -20,6 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/users/index/{search?}', 'UserController@index')->name('users.index')->middleware('auth');
 Route::get('/users/config', 'UserController@config')->name('user.config')->middleware('auth');
 Route::post('/users/update', 'UserController@update')->name('user.update')->middleware('auth');
 Route::get('/users/avatar/{filename}', 'UserController@getImage')->name('user.avatar')->middleware('auth');

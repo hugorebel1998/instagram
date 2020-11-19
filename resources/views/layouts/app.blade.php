@@ -66,6 +66,9 @@
                                 <a class="nav-link" href="{{ route('home') }}"><i class="fas fa-home"></i> {{ __('Inicio') }}</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" href="{{ route('users.index') }}"><i class="fas fa-users"></i> {{ __('Gente') }}</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('like.index') }}"><i class="fas fa-star"></i> {{ __('Favoritos') }}</a>
                             </li>
                             <li class="nav-item">
@@ -120,3 +123,4 @@
 </body>
 
 </html>
+
