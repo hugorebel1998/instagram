@@ -1,4 +1,4 @@
-<div class="card pu_image mt-5">
+<div class="card pu_image mt-4">
     <div class="card-header">
         @if ($image->user->image)
             <div class="container-avatar_mu">
@@ -7,7 +7,6 @@
             </div>
         @endif
         <div class="mt-2">
-
             <p>
                 <a href="{{ route('image.detail', ['id' => $image->id]) }} " class="detalle">
                     <b>{{ $image->user->name . ' ' . $image->user->surname }}</b> | @
@@ -19,10 +18,10 @@
         </div>
     </div>
 
-    <div class="card-body">
+    <div class="card-body car-img" >
         <div class="justify-content-center image">
             <img src="{{ route('image.file', ['filename' => $image->image_path]) }}"
-                class="img-fluid mx-auto d-block">
+                class="img-fluid">
         </div>
 
         <div class="likes pl-4 pt-3">

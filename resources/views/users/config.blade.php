@@ -92,14 +92,12 @@
                                 @enderror
                             </div>
                             @include('includes.avatar')
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
+                                <div class="text-center">
                                     <button type="submit" class="btn btn-sm btn-primary">
                                         <i class="fas fa-save"></i>
                                         {{ __('Guardar cambios') }}
                                     </button>
                                 </div>
-                            </div>
                         </form>
                     </div>
                 </div>

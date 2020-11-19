@@ -22,24 +22,24 @@ class UserSeeder extends Seeder
             'password' => bcrypt('12345678'),
         ]);
 
-        User::create([
-            'role' => 'user',
-            'name' => 'Juan Pablo',
-            'surname' => 'Guillermo Segundo',
-            'nick' => 'juanpabloweb',
-            'image' => 'juan.jpg',
-            'email' => 'juanpablo@gmail.com',
-            'password' => bcrypt('12345678'),
-        ]);
+        // User::create([
+        //     'role' => 'user',
+        //     'name' => 'Juan Pablo',
+        //     'surname' => 'Guillermo Segundo',
+        //     'nick' => 'juanpabloweb',
+        //     'image' => 'juan.jpg',
+        //     'email' => 'juanpablo@gmail.com',
+        //     'password' => bcrypt('12345678'),
+        // ]);
 
-        User::create([
-            'role' => 'user',
-            'name' => 'Jose Luis',
-            'surname' => 'Guillermo Segundo',
-            'nick' => 'joseluisweb',
-            'image' => 'jose.jpg',
-            'email' => 'joseluis@gmail.com',
-            'password' => bcrypt('12345678'),
-        ]);
+        // User::create([
+        //     'role' => 'user',
+        //     'name' => 'Jose Luis',
+        //     'surname' => 'Guillermo Segundo',
+        //     'nick' => 'joseluisweb',
+        //     'image' => 'jose.jpg',
+        //     'email' => 'joseluis@gmail.com',
+        //     'password' => bcrypt('12345678'),
+        // ]);
     }
 }
