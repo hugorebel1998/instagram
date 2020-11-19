@@ -13,6 +13,7 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -62,10 +63,13 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('home') }}">{{ __('Inicio') }}</a>
+                                <a class="nav-link" href="{{ route('home') }}"><i class="fas fa-home"></i> {{ __('Inicio') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('image.create') }}">{{ __('Subir imagen') }}</a>
+                                <a class="nav-link" href="{{ route('like.index') }}"><i class="fas fa-star"></i> {{ __('Favoritos') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('image.create') }}"><i class="fas fa-upload"></i> {{ __('Subir imagen') }}</a>
                             </li>
                             <li class="nav-item">
                                 @include('includes.avatar')

@@ -32,9 +32,24 @@
                         </div>
 
                         <div class="likes pl-4 pt-3">
-                            <i class="fas fa-heart "></i>
-                            <i class="fas fa-comment pl-3 pr-3"></i>
-                            <i class="fas fa-paper-plane"></i>
+                            {{-- Comprobar si el usuario le dio like a la publicación--}}
+                            <?php $user_like = false; ?>
+                           @foreach ($image->likes as $like)
+                               @if ($like->user->id == Auth::user()->id)
+                               <?php $user_like = true; ?>
+                               @endif
+                          @endforeach
+
+                          @if ($user_like)
+                          {{-- <i class="fas fa-heart text-danger btn-dislike" id="like"></i> --}}
+                          <img src="{{ asset('img/heart-red.png')}}" data-id="{{ $image->id}}" class="img-liks btn-dislike">
+                          @else                                  
+                          {{-- <i class="fas fa-heart  btn-like text-primary" id="like"></i> --}}
+                          <img src="{{ asset('img/heart.png')}}" data-id="{{ $image->id}}" class="img-liks btn-like">
+                          @endif
+                        </div>
+                        <div class="count_likes mt-2">
+                            <span class="pl-4 likes">{{ count($image->likes) }} Me gusta</span>
                         </div>
                         <div class="desciption pl-4 mt-3 mb-4">
                             <span>{{ '@' . $image->user->nick }}</span>
@@ -121,5 +136,62 @@
         </div>
     </div>
 
-
+ <script>
+        var url = "http://insta.com.net";
+        window.addEventListener("load", function () {
+            $('.btn-like').css('cursor', 'pointer');
+            $('.btn-dislike').css('cursor', 'pointer');
+        
+            // Boton de like
+            function like() {
+                $('.btn-like').unbind('click').click(function () {
+                    console.log('like');
+                    $(this).addClass('btn-dislike').removeClass('btn-like');
+                    $(this).attr('src', url+'/img/heart-red.png');
+                    $.ajax({
+                        url: url+'/like/'+$(this).data('id'),
+                        type: 'GET',
+                        success: function(response){
+                            if(response.like){
+                                console.log("Has dado un like a esta publicación");
+                            }else{
+                                console.log("Error al dar like ala publicación");
+                            }
+                        }
+        
+                    });
+        
+                    dislike();
+        
+                });
+            }
+            like();
+        
+            //Boton de dislike
+            function dislike() {
+                $('.btn-dislike').unbind('click').click(function () {
+                    console.log('dislike');
+                    $(this).addClass('btn-like').removeClass('btn-dislike');
+                    $(this).attr('src', url+'/img/heart.png');
+                    $.ajax({
+                        url: url+'/dislike/'+$(this).data('id'),
+                        type: 'GET',
+                        success: function(response){
+                            if(response.like){
+                                console.log("Has dado dislike a esta publicación");
+                            }else{
+                                console.log("Error al dar dislike ala publicación");
+                            }
+                        }
+        
+                    });
+        
+                    like();
+        
+                });
+            }
+            dislike();
+        
+        });
+</script>
 @endsection

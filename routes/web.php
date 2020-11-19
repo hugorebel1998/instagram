@@ -35,3 +35,4 @@ Route::get('/comment/save/{id}', 'CommentController@delete')->name('comment.dele
 
 Route::get('/like/{image_id}', 'LikeController@like')->name('like.save')->middleware('auth');
 Route::get('/dislike/{image_id}', 'LikeController@dislike')->name('like.delete')->middleware('auth');
+Route::get('/likes/index', 'LikeController@index')->name('like.index')->middleware('auth');

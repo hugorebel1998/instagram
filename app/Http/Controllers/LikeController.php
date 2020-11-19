@@ -12,6 +12,16 @@ class LikeController extends Controller
         $this->middleware('auth');
     }
 
+    public function index()
+    {
+        $user = \Auth::user();
+        $likes = Like::where('user_id', $user->id)->orderBy('id', 'desc')->paginate(5);
+
+        return view('like.index', [
+            'likes' => $likes
+        ]);
+    }
+
     public function like($image_id)
     {
         //Recoger los datos de usurio y la imagen
@@ -47,7 +57,7 @@ class LikeController extends Controller
         $like = Like::where('user_id', $user->id)->where('image_id', $image_id)->first();
 
         if ($like) {
-             $like->delete();
+            $like->delete();
 
             return response()->json([
                 'message' => 'Has dado dislike correctamente'

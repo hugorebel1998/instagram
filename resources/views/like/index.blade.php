@@ -2,16 +2,21 @@
 
 @section('content')
     <div class="container">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <h1>
+            Mis imagenes favoritas
+            <i class="fas fa-star text-warning"></i>
+        </h1>
+        <hr>
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                @include('includes.message')
-                @foreach ($images as $image)
-                    @include('includes.image', ['image'=> $image])
+            <div class="col-md-7">
+                @foreach ($likes as $like)
+                    @include('includes.image', ['image'=> $like->image])
+
                 @endforeach
-                <div class="clearfix mt-4"></div>
+
                 {{-- Paginacion --}}
-                {{ $images->links() }}
+                <div class="clearfix"></div>
+                {{ $likes->links() }}
             </div>
         </div>
     </div>
