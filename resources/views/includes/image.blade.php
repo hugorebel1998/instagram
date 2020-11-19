@@ -8,7 +8,7 @@
         @endif
         <div class="mt-2">
             <p>
-                <a href="{{ route('image.detail', ['id' => $image->id]) }} " class="detalle">
+                <a href="{{ route('user.perfile', ['id' => $image->user->id]) }} " class="detalle">
                     <b>{{ $image->user->name . ' ' . $image->user->surname }}</b> | @
                     {{ $image->user->nick }}
 
@@ -34,10 +34,10 @@
           @endforeach
 
           @if ($user_like)
-          {{-- <i class="fas fa-heart text-danger btn-dislike" id="like"></i> --}}
+          
           <img src="{{ asset('img/heart-red.png')}}" data-id="{{ $image->id}}" class="img-liks btn-dislike">
           @else                                  
-          {{-- <i class="fas fa-heart  btn-like text-primary" id="like"></i> --}}
+          
           <img src="{{ asset('img/heart.png')}}" data-id="{{ $image->id}}" class="img-liks btn-like">
           @endif
         </div>
@@ -52,7 +52,7 @@
             {{ \FormatTime::LongTimeFilter($image->created_at) }}
         </span>
         <hr>
-        <a href="#" class="btn btn-sm btn-warning ml-4 mb-3">
+        <a href="{{ route('image.detail', ['id' => $image->id]) }}" class="btn btn-sm btn-warning ml-4 mb-3">
             Comentarios ({{ count($image->comments) }})
         </a>
     </div>

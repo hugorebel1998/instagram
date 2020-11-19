@@ -32,7 +32,7 @@ class UserController extends Controller
         \Validator::extend('alpha_spaces', function ($attribute, $value) {
             return preg_match('/^([-a-z0-9_-\s])+$/i', $value);
         });
-        
+
         //Conseguir usuario identificado
         $user =  \Auth::user();
         $id = $user->id;
@@ -74,5 +74,12 @@ class UserController extends Controller
         $file = Storage::disk('users')->get($filename);
 
         return new Response($file, 200);
+    }
+    public function  profile($id)
+    {
+        $user = User::find($id);
+        return view('users.perfile', [
+            'user' => $user
+        ]);
     }
 }
