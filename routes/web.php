@@ -29,6 +29,9 @@ Route::get('/images/create', 'ImageController@create')->name('image.create')->mi
 Route::post('/image/save', 'ImageController@save')->name('image.save')->middleware('auth');
 Route::get('/image/file/{filename}', 'ImageController@getImage')->name('image.file')->middleware('auth');
 Route::get('/image/detail/{id}', 'ImageController@detail')->name('image.detail')->middleware('auth');
+Route::get('/image/delete/{id}', 'ImageController@delete')->name('image.delete')->middleware('auth');
+Route::get('/image/edit/{id}', 'ImageController@edit')->name('image.edit')->middleware('auth');
+Route::post('/image/update', 'ImageController@update')->name('image.update')->middleware('auth');
 
 
 Route::post('/comment/save', 'CommentController@save')->name('comment.save')->middleware('auth');

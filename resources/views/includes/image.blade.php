@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <div class="card-body car-img" >
+    <div class="card-body car-img">
         <div class="justify-content-center image">
             <img src="{{ route('image.file', ['filename' => $image->image_path]) }}"
                 class="img-fluid">
@@ -34,10 +34,10 @@
           @endforeach
 
           @if ($user_like)
-          
+          {{-- <i class="fas fa-heart text-danger btn-dislike" id="like"></i> --}}
           <img src="{{ asset('img/heart-red.png')}}" data-id="{{ $image->id}}" class="img-liks btn-dislike">
           @else                                  
-          
+          {{-- <i class="fas fa-heart  btn-like text-primary" id="like"></i> --}}
           <img src="{{ asset('img/heart.png')}}" data-id="{{ $image->id}}" class="img-liks btn-like">
           @endif
         </div>
